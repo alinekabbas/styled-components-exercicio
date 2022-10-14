@@ -1,6 +1,9 @@
 import React from "react";
 import CardVideo from "./Componentes/CardVideo";
-import "./styles.css";
+// import "./styles.css";
+import { createGlobalStyle } from "styled-components"
+import { GlobalStyle, Header, Main, Nav, BotoesLista, Section, Rodape, TelaInteira } from "./styles";
+
 
 export default function App() {
   const card1 = {
@@ -11,37 +14,38 @@ export default function App() {
 
   return (
     <div>
-      <div className="tela-inteira">
-        <header>
+      <GlobalStyle />
+      <TelaInteira>
+        <Header>
           <h1>LabeTube</h1>
           <input type="text" placeholder="Busca" id="campoDeBusca" />
-        </header>
+        </Header>
 
-        <main>
-          <nav className="menu-vertical">
+        <Main>
+          <Nav>
             <ul>
-              <li className="botoes-meunu-vertical">Início</li>
-              <li className="botoes-meunu-vertical">Em alta</li>
-              <li className="botoes-meunu-vertical">Inscrições</li>
+              <BotoesLista>Início</BotoesLista>
+              <BotoesLista>Em alta</BotoesLista>
+              <BotoesLista>Inscrições</BotoesLista>
               <hr />
-              <li className="botoes-meunu-vertical">Originais</li>
-              <li className="botoes-meunu-vertical">Histórico</li>
+              <BotoesLista>Originais</BotoesLista>
+              <BotoesLista>Histórico</BotoesLista>
             </ul>
-          </nav>
+          </Nav>
 
-          <section className="painel-de-videos">
+          <Section>
             <CardVideo
               image1={card1.imagemDoVideo}
               titulo={card1.titulo}
               textoAlternativo={card1.textoAlternativo}
             />
-          </section>
-        </main>
+          </Section>
+        </Main>
 
-        <footer>
+        <Rodape>
           <h4>Oi! Eu moro no footer!</h4>
-        </footer>
-      </div>
+        </Rodape>
+      </TelaInteira>
     </div>
   );
 }
